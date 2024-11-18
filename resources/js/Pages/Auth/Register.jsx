@@ -1,11 +1,10 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import React from 'react';
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
+import { useForm, Link, Head } from '@inertiajs/react';
+import '../../../css/style.css';
+import '../../../css/register.css';
 
-export default function Register() {
+export default function LoginForm() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -15,106 +14,79 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };
 
     return (
-        <GuestLayout>
-            <Head title="Register" />
-
+        <div className="wrapper">
+            <Head title="Registrar" />
             <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                <h1>Registrar</h1>
 
-                    <TextInput
-                        id="name"
-                        name="name"
+                <div className="input-box">
+                    <input
+                        type="text"
+                        placeholder="Nome"
                         value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
                         onChange={(e) => setData('name', e.target.value)}
                         required
                     />
-
-                    <InputError message={errors.name} className="mt-2" />
+                    <FaUser className="icon" />
+                    {errors.name && <span className="error">{errors.name}</span>}
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
+                <div className="input-box">
+                    <input
                         type="email"
-                        name="email"
+                        placeholder="Email"
                         value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
                         onChange={(e) => setData('email', e.target.value)}
                         required
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
+                    <FaEnvelope className="icon" />
+                    {errors.email && <span className="error">{errors.email}</span>}
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
+                <div className="input-box">
+                    <input
                         type="password"
-                        name="password"
+                        placeholder="Senha"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
                         onChange={(e) => setData('password', e.target.value)}
                         required
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
+                    <FaLock className="icon" />
+                    {errors.password && <span className="error">{errors.password}</span>}
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        id="password_confirmation"
+                <div className="input-box">
+                    <input
                         type="password"
-                        name="password_confirmation"
+                        placeholder="Confirmar Senha"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
                         onChange={(e) =>
                             setData('password_confirmation', e.target.value)
                         }
                         required
                     />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
+                    <FaLock className="icon" />
+                    {errors.password_confirmation && (
+                        <span className="error">{errors.password_confirmation}</span>
+                    )}
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                    >
-                        Already registered?
+                <div className="remember-forgot">
+                    <Link href={route('login')} className="link">
+                        Já está registrado?
                     </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
                 </div>
+
+                <button type="submit" disabled={processing}>
+                    Registrar
+                </button>
             </form>
-        </GuestLayout>
+        </div>
     );
 }
