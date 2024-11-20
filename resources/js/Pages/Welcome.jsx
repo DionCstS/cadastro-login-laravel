@@ -45,6 +45,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     >
                                         Dashboard
                                     </Link>
+
+                                    
                                 ) : (
                                     <>
                                         <Link
