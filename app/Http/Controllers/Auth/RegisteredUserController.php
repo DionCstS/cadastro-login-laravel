@@ -33,12 +33,17 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'cpf' => 'required|string|size:11|unique:users', // Validação do CPF
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        // Remove a máscara do CPF
+        $cpf = preg_replace('/\D/', '', $request->cpf);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'cpf' => $cpf, // Salva o CPF sem a máscara
             'password' => Hash::make($request->password),
         ]);
 
@@ -46,6 +51,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('profile.index', absolute: false));
     }
 }

@@ -1,0 +1,63 @@
+/* Ajustando o card para ter maior largura e centralização */
+.profile-card {
+    width: 450px; /* Largura aumentada */
+    padding: 30px;
+    margin: 50px auto; /* Centraliza o card na tela */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza todos os itens dentro do card */
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    width: 120px; /* Aumentando o tamanho da foto */
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #007bff;
+    margin-bottom: 15px; /* Espaçamento entre a imagem e o nome */
+  }
+  
+  .profile-avatar:hover {
+    border-color: #0056b3;
+    opacity: 0.8;
+  }
+  
+  .profile-header h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .profile-details p {
+    font-size: 16px; /* Tamanho de fonte maior */
+    color: #555;
+    margin: 8px 0; /* Maior espaçamento entre as linhas */
+  }
+  
+  .profile-actions {
+    margin-top: 20px;
+    width: 100%; /* Faz os botões ocuparem toda a largura do card */
+  }
+  
+  .profile-actions button {
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Botões ocupam a largura completa */
+  }
+  
+  .profile-actions button:hover {
+    background-color: #0056b3;
+  }
+  

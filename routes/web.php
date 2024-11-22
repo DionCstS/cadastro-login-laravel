@@ -5,6 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TesteController;
+use App\Http\Controllers\TtesteController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -28,6 +30,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/my-profile', [TesteController::class, 'index'])->name('profile.index');
 
+// Redirecionar a página inicial para a tela de login
+Route::get('/', function () {
+    return redirect()->route('login'); // Redireciona para a rota nomeada 'login'
+})->name('teste');
 
-
+Route::get('/teste', [TtesteController::class, 'index'])->name('teste.index');
