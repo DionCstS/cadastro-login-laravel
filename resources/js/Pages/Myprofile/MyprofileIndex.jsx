@@ -13,7 +13,7 @@ const UserIndex = () => {
         return <div>Carregando...</div>;
     }
 
-    const [fotoPerfil, setFotoPerfil] = useState(user.photo || 'avatar-placeholder.png');
+    const [fotoPerfil, setFotoPerfil] = useState(user.photo || '/images/avatar-profile.jpg');
     const [nome, setNome] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [cpf, setCpf] = useState(user.cpf);
