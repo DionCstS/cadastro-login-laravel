@@ -7,6 +7,35 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+
+
+
+
+
+# Projeto Laravel com React
+
+Este projeto combina Laravel e React para criar uma aplicação web moderna. Abaixo estão os passos necessários para configurar e rodar o projeto localmente.
+
+---
+
+## Instalação e Configuração
+
+### 1. Instalar Dependências do Node.js
+1. Execute o comando para instalar as dependências:
+   ```bash
+   npm install
+
+
+
+
+
+
+
+
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
